@@ -11,6 +11,7 @@ import { ReportComponent } from './report/report.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { IssueComponent } from './issue/issue.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReportComponent,
     WelcomeComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    IssueComponent
   ],
   imports: [
     BrowserModule,
