@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Issue } from 'src/models/issue.model';
+import { Issue } from '../models/issue.model';
 
 @Component({
   selector: 'app-issue',

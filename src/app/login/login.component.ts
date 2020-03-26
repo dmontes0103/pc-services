@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -9,15 +9,19 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  @Output() _authenticated;
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  public authenticated : boolean = false;
+
   onSubmit(form: NgForm){
     const email = form.value.email;
     const pass = form.value.password;
-    if(email === 'dmontes0103@gmail.com' && pass === '1234'){
+    if(email !== '' && pass !== ''){
+      this.authenticated = true;
       this.router.navigate(['dashboard']);
     }else{
       this.router.navigate(['error']);

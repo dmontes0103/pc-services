@@ -14,4 +14,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAuth(){
+    return false;
+  }
+
 }

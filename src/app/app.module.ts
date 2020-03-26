@@ -12,6 +12,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IssueComponent } from './issue/issue.component';
+import { AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { HttpClientModule } from '@angular/common/http';
+import { CountryService } from 'src/services/country.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +32,11 @@ import { IssueComponent } from './issue/issue.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AutocompleteLibModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
