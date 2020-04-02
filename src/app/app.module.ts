@@ -14,7 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { IssueComponent } from './issue/issue.component';
 import { AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { HttpClientModule } from '@angular/common/http';
-import { CountryService } from 'src/services/country.service';
+import { CountryService } from 'src/app/services/country.service';
+import { ImagedropDirective } from './directives/imagedrop.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CountryService } from 'src/services/country.service';
     WelcomeComponent,
     LoginComponent,
     DashboardComponent,
-    IssueComponent
+    IssueComponent,
+    ImagedropDirective
   ],
   imports: [
     BrowserModule,

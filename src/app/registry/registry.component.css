@@ -1,0 +1,12 @@
+.profilePicture{
+    width: 120px;
+    height: 200px;
+    border: 2px dashed grey;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilePicture.active {
+    background-color:white;
+    border: 4px dashed black;
+}

@@ -2,12 +2,24 @@
     <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Create Account</h4>
         <form>
+            <div class="form-group input-group" style="display: block; text-align: center;">
+                <p>Grab a picture for your profile</p>
+                <div class="profilePicture" *ngIf="!imgSrc" #imageDrop name="image" id="image" appImagedrop
+                    (imageHovered)="dropZoneState($event)" (imageDropped)="imageDropped($event)"
+                    [ngClass]="{'active': dropZoneActive}">
+                <i class="far fa-arrow-alt-circle-down fa-5x"></i>
+                </div>
+                    <img [src]="imgSrc" height="200" width="120" *ngIf="imgSrc" (click)="resetImage()"/>
+            </div>
+            <div class="form-group input-group">
+                <button class="btn btn-primary" *ngIf="imgSrc" (click)="resetImage()">Reset image</button>
+            </div>
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
                 <input name="" class="form-control" placeholder="First name" type="text">
-            </div> <!-- form-group// -->
+            </div>
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -36,9 +48,9 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                 </div>
-                <select class="form-control" #countrySelect (change)='onCountryChanged(countrySelect.value)' >
-                <option selected="">Select your country</option>
-                <option *ngFor="let c of data">{{c.name }}</option>
+                <select class="form-control" #countrySelect (change)='onCountryChanged(countrySelect.value)'>
+                    <option selected="">Select your country</option>
+                    <option *ngFor="let c of data">{{ c.name  }}</option>
                 </select>
             </div> <!-- form-group end.// -->
             <div class="form-group input-group">
