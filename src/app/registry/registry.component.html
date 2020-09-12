@@ -2,48 +2,35 @@
     <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Create Account</h4>
         <form>
-            <div class="form-group input-group" style="display: block; text-align: center;">
-                <p>Grab a picture for your profile</p>
-                <div class="profilePicture" *ngIf="!imgSrc" #imageDrop name="image" id="image" appImagedrop
-                    (imageHovered)="dropZoneState($event)" (imageDropped)="imageDropped($event)"
-                    [ngClass]="{'active': dropZoneActive}">
-                <i class="far fa-arrow-alt-circle-down fa-5x"></i>
-                </div>
-                    <img [src]="imgSrc" height="200" width="120" *ngIf="imgSrc" (click)="resetImage()"/>
-            </div>
             <div class="form-group input-group">
-                <button class="btn btn-primary" *ngIf="imgSrc" (click)="resetImage()">Reset image</button>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="cName" class="form-control" [(ngModel)]="this._customer.name" placeholder="First name" type="text">
             </div>
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input name="" class="form-control" placeholder="First name" type="text">
-            </div>
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                </div>
-                <input name="lastName" class="form-control" placeholder="Last name" type="text">
+                <input name="lastName"  [(ngModel)]="this._customer.lastName" class="form-control" placeholder="Last name" type="text">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
-                <input name="email" class="form-control" placeholder="Email address" type="email">
+                <input name="email" [(ngModel)]="this._customer.email" class="form-control" placeholder="Email address" type="email">
             </div><!-- form-group// -->
-            <!-- <div class="form-group input-group">
+            <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                 </div>
-                <select class="custom-select" style="max-width: 120px;">
-                    <option selected="">Mobile</option>
-                    <option value="1">+972</option>
-                    <option value="2">+198</option>
-                    <option value="3">+701</option>
+                <select class="custom-select" name="operator" [(ngModel)]="this._customer.operator" style="max-width: 120px;">
+                    <option value="kolbi" selected="kolbi">Kolbi</option>
+                    <option value="movistar">Movistar</option>
+                    <option value="claro">Claro</option>
                 </select>
-                <input name="" class="form-control" placeholder="Phone number" type="text">
-            </div> form-group// -->
+                <input name="phone" class="form-control" name="phone" [(ngModel)]="this._customer.phone"  placeholder="Phone number" type="text">
+            </div> <!--form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
@@ -57,7 +44,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input class="form-control" placeholder="Create password" type="password">
+                <input class="form-control" name="password" [(ngModel)]="this._customer.password" placeholder="Create password" type="password">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -66,7 +53,7 @@
                 <input class="form-control" placeholder="Repeat password" type="password">
             </div> <!-- form-group// -->
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                <button type="submit" class="btn btn-primary btn-block" (click)="createAccount()"> Create Account </button>
             </div> <!-- form-group// -->
             <p class="text-center">Have an account? <a href="login">Log In</a> </p>
         </form>

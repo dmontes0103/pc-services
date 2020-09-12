@@ -3,6 +3,7 @@ import { CountryService } from '../services/country.service';
 import { Observable } from 'rxjs';
 import { CountryModel } from '../models/country.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Customer } from '../models/customer.model';
 
 @Component({
   selector: 'app-registry',
@@ -15,8 +16,9 @@ export class RegistryComponent implements OnInit {
 
   public keyword = "name"; //JSON attribute name
   dropZoneActive: boolean = false;
-
+  cName:string;
   imgSrc:any;
+  _customer = {} as Customer;
 
   data: CountryModel.ICountry[] = [];
 
@@ -34,16 +36,16 @@ export class RegistryComponent implements OnInit {
   }
 
   loadCountries() {
-    this.data = [];
+    //this.data = [];
     this.http.getAllCountries().subscribe(
       data => {
         this.data = data;
-        console.log(this.data)
+        //console.log(this.data)
       });
   }
 
   onCountryChanged(value: string) {
-    console.log('Selected value is:' + value);
+    this._customer.country = value;
   }
 
   ngOnInit() {
@@ -53,6 +55,10 @@ export class RegistryComponent implements OnInit {
   resetImage(){
     this.dropZoneActive = false;
     this.imgSrc = '';
+  }
+
+  createAccount(){
+    console.log(this._customer);
   }
 
 }
